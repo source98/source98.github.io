@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>一文读懂Decorator装饰器 | 二筒是只猫</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="Today is the best day">
+    
+    <link rel="preload" href="/assets/css/0.styles.3ae2af0e.css" as="style"><link rel="preload" href="/assets/js/app.3ee8449f.js" as="script"><link rel="preload" href="/assets/js/7.b9715abf.js" as="script"><link rel="preload" href="/assets/js/2.f10600e0.js" as="script"><link rel="preload" href="/assets/js/1.2ef5d93a.js" as="script"><link rel="preload" href="/assets/js/42.5eb7cc56.js" as="script"><link rel="prefetch" href="/assets/js/10.fa3ada97.js"><link rel="prefetch" href="/assets/js/11.dfada6f6.js"><link rel="prefetch" href="/assets/js/14.4cf93777.js"><link rel="prefetch" href="/assets/js/15.31918b87.js"><link rel="prefetch" href="/assets/js/16.26d5b961.js"><link rel="prefetch" href="/assets/js/17.530b3048.js"><link rel="prefetch" href="/assets/js/18.e66cedc0.js"><link rel="prefetch" href="/assets/js/19.b605cf24.js"><link rel="prefetch" href="/assets/js/20.f06b3260.js"><link rel="prefetch" href="/assets/js/21.446f4ac9.js"><link rel="prefetch" href="/assets/js/22.3a335331.js"><link rel="prefetch" href="/assets/js/23.014fc669.js"><link rel="prefetch" href="/assets/js/24.a7ab9e33.js"><link rel="prefetch" href="/assets/js/25.65286799.js"><link rel="prefetch" href="/assets/js/26.30b0f04b.js"><link rel="prefetch" href="/assets/js/27.a1d2d9cd.js"><link rel="prefetch" href="/assets/js/28.cbe86d31.js"><link rel="prefetch" href="/assets/js/29.7205aae8.js"><link rel="prefetch" href="/assets/js/3.d658b893.js"><link rel="prefetch" href="/assets/js/30.f3a92645.js"><link rel="prefetch" href="/assets/js/31.965ef027.js"><link rel="prefetch" href="/assets/js/32.e2cc7d59.js"><link rel="prefetch" href="/assets/js/33.5e8348de.js"><link rel="prefetch" href="/assets/js/34.b67efa64.js"><link rel="prefetch" href="/assets/js/35.d3ac76a2.js"><link rel="prefetch" href="/assets/js/36.a5a09527.js"><link rel="prefetch" href="/assets/js/37.d1503649.js"><link rel="prefetch" href="/assets/js/38.0024fd49.js"><link rel="prefetch" href="/assets/js/39.101a264e.js"><link rel="prefetch" href="/assets/js/4.171a72f5.js"><link rel="prefetch" href="/assets/js/40.b8244001.js"><link rel="prefetch" href="/assets/js/41.07895291.js"><link rel="prefetch" href="/assets/js/43.6084adc3.js"><link rel="prefetch" href="/assets/js/5.bc2aff1c.js"><link rel="prefetch" href="/assets/js/6.bdee402e.js"><link rel="prefetch" href="/assets/js/8.cc73e129.js"><link rel="prefetch" href="/assets/js/9.74254265.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.017a3f08.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3ae2af0e.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-7dd95ae2><div data-v-7dd95ae2><div class="password-shadow password-wrapper-out" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>二筒是只猫</h3> <p class="description" data-v-59e6cb88>Today is the best day</p> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Zeal</span>
+          
+        <!---->
+        2024
+      </a></span></div></div> <div class="hide" data-v-7dd95ae2><header class="navbar" data-v-7dd95ae2><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">二筒是只猫</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li></ul></div></div><div class="nav-item"><a href="https://juejin.cn/user/141185929971726" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/Xusssyyy" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://leetcode.cn/u/festive-yonathvaz/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  LeetCode
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-7dd95ae2></div> <aside class="sidebar" data-v-7dd95ae2><div class="personal-info-wrapper" data-v-1fad0c41 data-v-7dd95ae2><!----> <h3 class="name" data-v-1fad0c41>
+    Zeal
+  </h3> <div class="num" data-v-1fad0c41><div data-v-1fad0c41><h3 data-v-1fad0c41>4</h3> <h6 data-v-1fad0c41>Articles</h6></div> <div data-v-1fad0c41><h3 data-v-1fad0c41>5</h3> <h6 data-v-1fad0c41>Tags</h6></div></div> <ul class="social-links" data-v-1fad0c41></ul> <hr data-v-1fad0c41></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/javascript/" class="nav-link"><i class="undefined"></i>
+  javascript
+</a></li></ul></div></div><div class="nav-item"><a href="https://juejin.cn/user/141185929971726" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  掘金
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/Xusssyyy" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://leetcode.cn/u/festive-yonathvaz/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="undefined"></i>
+  LeetCode
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-59e6cb88 data-v-7dd95ae2><h3 class="title" data-v-59e6cb88>一文读懂Decorator装饰器</h3> <!----> <label id="box" class="inputBox" data-v-59e6cb88><input type="password" value="" data-v-59e6cb88> <span data-v-59e6cb88>Konck! Knock!</span> <button data-v-59e6cb88>OK</button></label> <div class="footer" data-v-59e6cb88><span data-v-59e6cb88><i class="iconfont reco-theme" data-v-59e6cb88></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-59e6cb88>vuePress-theme-reco</a></span> <span data-v-59e6cb88><i class="iconfont reco-copyright" data-v-59e6cb88></i> <a data-v-59e6cb88><span data-v-59e6cb88>Zeal</span>
+          
+        <!---->
+        2024
+      </a></span></div></div> <div data-v-7dd95ae2><div data-v-7dd95ae2><main class="page" style="padding-right:0;"><section style="display:;"><div class="page-title"><h1 class="title">一文读懂Decorator装饰器</h1> <div data-v-8a445198><i class="iconfont reco-account" data-v-8a445198><span data-v-8a445198>Zeal</span></i> <i class="iconfont reco-date" data-v-8a445198><span data-v-8a445198>7/14/2024</span></i> <!----> <i class="tags iconfont reco-tag" data-v-8a445198><span class="tag-item" data-v-8a445198>JavaScript</span><span class="tag-item" data-v-8a445198>装饰器</span></i></div></div> <div class="theme-reco-content content__default"><p><strong>1. 装饰器的样子</strong></p> <p>我们首先先来看看<strong>Decorator</strong>装饰器长什么样子，以下代码摘录自<a href="https://docs.nestjs.cn/8/controllers" target="_blank" rel="noopener noreferrer">Nest官方文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">/*Nest.Js cats.controller.ts */</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Controller<span class="token punctuation">,</span> Get<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@nestjs/common'</span>
+
+@<span class="token function">Controller</span><span class="token punctuation">(</span><span class="token string">'cats'</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">CatsController</span><span class="token punctuation">{</span>
+  @<span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token function">findAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> string<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'This action returns all cats'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们先不急着去理解以上代码，先有一个对装饰器的初步映像。</p> <p><strong>2. 为什么要理解装饰器</strong></p> <p>Decorator 装饰器是 ECMAScript 的语言提案，目前还处于 stage-2 阶段，但是借助 TypeScript 或者 Babel，已经有大量的优秀开源项目深度用上它了，比如：VS Code, Angular, Nest.Js(后端 Node.js 框架), TypeORM, Mobx(5) 等等。了解了装饰器，我们可以学习下一些优质的编码方式以及思想概念。</p> <p><strong>3. 装饰器的概念区分</strong></p> <p>在了解装饰器之前，有必要先对装饰器的3个概念进行区分。</p> <ol><li>Decorator Pattern
+装饰器模式，是一种抽象的设计理念，核心思想是在不修复原有代码的情况下对功能进行扩展。</li> <li>Decorator
+装饰器，是一种装饰类函数，是对装饰器模式的具体实现。</li> <li>@Decorator
+是装饰器的语法糖。</li></ol> <p><strong>4. 装饰器实战</strong></p> <p>现在有一个Person类， 它有两个函数方法：eat和play。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+  <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'在吃饭'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'在玩游戏'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>现在，我想记录下这个类每个函数的执行时间，方便后期的性能优化。</p> <p><strong>4.1 普通做法</strong></p> <p>入侵式写入代码</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+  <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> start <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'在吃饭'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> end <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">运行时间</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>end <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">const</span> start <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'在玩游戏'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> end <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">运行时间</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>end <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这样做明显是提高了代码可读性以及维护成本。</p> <p><strong>4.2 装饰器模式(重点)</strong></p> <p>我们利用装饰器模式的设计理念，用纯函数的形式写一个装饰器，实现记录函数的耗时。</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 装饰器函数</span>
+<span class="token keyword">function</span> <span class="token function">decoratorLogTime</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> targetPrototype <span class="token operator">=</span> target<span class="token punctuation">.</span>prototype
+  <span class="token comment">// 1 备份原来类构造器上的属性描述符 Descriptor</span>
+  <span class="token keyword">const</span> oldDescriptor <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>targetPrototype<span class="token punctuation">,</span> key<span class="token punctuation">)</span>
+
+  <span class="token comment">// 2 编写装饰器函数业务逻辑代码</span>
+  <span class="token keyword">const</span> <span class="token function-variable function">logTime</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Before 钩子</span>
+    <span class="token keyword">let</span> start <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 执行原来函数</span>
+      <span class="token keyword">return</span> oldDescriptor<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arg<span class="token punctuation">)</span> <span class="token comment">// 调用之前的函数</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+      <span class="token comment">// After 钩子</span>
+      <span class="token keyword">let</span> end <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">耗时: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>end <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 3 将装饰器覆盖原来的属性描述符的 value</span>
+  Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>targetPrototype<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>oldDescriptor<span class="token punctuation">,</span>
+    <span class="token literal-property property">value</span><span class="token operator">:</span> logTime
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+  <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'在吃饭'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'在游戏'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 4 手动执行装饰器函数，装饰 GuanYu 的 attack 函数</span>
+<span class="token function">decoratorLogTime</span><span class="token punctuation">(</span>Person<span class="token punctuation">,</span> <span class="token string">'eat'</span><span class="token punctuation">)</span>
+<span class="token comment">// Step4 手动执行装饰器函数，装饰 GuanYu 的 run 函数</span>
+<span class="token function">decoratorLogTime</span><span class="token punctuation">(</span>Person<span class="token punctuation">,</span> <span class="token string">'play'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+person<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 耗时: 5ms</span>
+person<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 耗时: 0ms</span>
+</code></pre></div><p>在理解上面代码之前，我们需要先理解Object的两个方法：<strong><a href="https://source98.github.io/blogs/Object.html" target="_blank" rel="noopener noreferrer">Object.getOwnPropertyDescriptor &amp; Object.defineProperty<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></strong>
+以上就是装饰器的具体实现方法，其核心思想是：</p> <ul><li>1.备份原来类构造器的属性描述符，利用<strong>Object.getOwnProPertyDescriptor</strong>获取。</li> <li>2.编写装饰器函数业务逻辑代码，添加耗时统计逻辑。</li> <li>3.用装饰器函数覆盖原来属性描述符的value，利用<strong>Object.defineProperty</strong>代理。</li> <li>4.手动执行装饰器函数，装饰类指定属性。</li></ul> <p><strong>5. @Decorator语法糖</strong></p> <p>下面我们来学习下语法糖的写法</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 编写装饰器函数业务逻辑代码</span>
+<span class="token keyword">function</span> <span class="token function">logTime</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> key<span class="token punctuation">,</span> descriptor</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> oldMethed <span class="token operator">=</span> descriptor<span class="token punctuation">.</span>value
+  <span class="token keyword">const</span> <span class="token function-variable function">logTime</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> start <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token comment">// 调用之前的函数</span>
+      <span class="token keyword">return</span> <span class="token function">oldMethed</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arg<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> end <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">耗时: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>end <span class="token operator">-</span> start<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">ms</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  descriptor<span class="token punctuation">.</span>value <span class="token operator">=</span> logTime
+  <span class="token keyword">return</span> descriptor
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 利用 @ 语法糖装饰指定属性</span>
+  @logTime
+  <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'在吃饭'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 利用 @ 语法糖装饰指定属性</span>
+  @logTime
+  <span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'在游戏'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+person<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 在吃饭</span>
+<span class="token comment">// 耗时: 2ms</span>
+person<span class="token punctuation">.</span><span class="token function">play</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// 在游戏</span>
+<span class="token comment">// 耗时: 3ms</span>
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <!----> <div class="comments-wrapper"><!----></div></main></div> <!----></div> <ul class="sub-sidebar sub-sidebar-wrapper" style="width:0;" data-v-b57cc07c data-v-7dd95ae2></ul></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/assets/js/app.3ee8449f.js" defer></script><script src="/assets/js/7.b9715abf.js" defer></script><script src="/assets/js/2.f10600e0.js" defer></script><script src="/assets/js/1.2ef5d93a.js" defer></script><script src="/assets/js/42.5eb7cc56.js" defer></script>
+  </body>
+</html>
